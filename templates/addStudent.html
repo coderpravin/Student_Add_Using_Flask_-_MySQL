@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .bg-custom {
+          background-image: url('https://www.shutterstock.com/image-vector/premium-abstract-colorful-background-gradient-260nw-1940425723.jpg'); /* Replace with your image URL */
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+      }
+  
+      </style>
+  
+
+</head>
+<body class="bg-custom flex items-center justify-center min-h-screen">
+
+    <form action="{{ url_for('add_Student') }}" method="post">
+        <div class="mb-4">
+            <label for="" class="block text-sm font-medium text-gray-700"> Student Name</label>
+            <input type="text" value="" name="name" class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" required>
+        </div>
+
+        <div class="mb-4">
+            <label for="" class="block text-sm font-medium text-gray-700"> Student Email</label>
+            <input type="text" value="" name="email" class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" required>
+        </div>
+
+        <div class="mb-4">
+            <label for="" class="block text-sm font-medium text-gray-700"> Student Mobile Number </label>
+            <input type="text" value="" name="mobile" class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" required>
+        </div>
+
+        <button type="submit" class="w-full py-2 bg-indigo-600 text-white font-semibold rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            Add Student
+        </button>
+
+    </form>
+
+    
+    <!-- Back to Home Page Link (Below Form) -->
+    <div class="w-3/4 text-center">
+        <a href="{{ url_for('index') }}" class="text-blue-500 hover:text-blue-700 mt-4 ">Back to Home Page</a>
+    </div>
+      
+</body> 
+</html>

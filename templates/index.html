@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Record</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      .bg-custom {
+        background-image: url('https://www.shutterstock.com/image-vector/premium-abstract-colorful-background-gradient-260nw-1940425723.jpg'); /* Replace with your image URL */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    </style>
+
+</head>
+<body class="bg-custom flex items-center justify-center min-h-screen flex-col">
+
+  <div class="text-center mt-6 my-6">
+    <h1 class="text-3xl font-bold text-indigo-600 uppercase">Student Information</h1>
+  </div>
+  
+
+    <div class="container">
+      <table class="table-auto border-collapse border border-gray-300 w-3/4">
+        <thead> 
+          <tr>
+            <th class="border border-gray-300 px-4 py-2">Id</th>
+            <th class="border border-gray-300 px-4 py-2">Student Name</th>
+            <th class="border border-gray-300 px-4 py-2">Student Email</th>
+            <th class="border border-gray-300 px-4 py-2">Student Mobile Number</th>
+            <th class="border border-gray-300 px-4 py-2">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for student in students %}  
+          <tr>
+            <td class="border border-gray-300 px-4 py-2 hover:bg-gray-100">{{student.id}}</td>
+            <td class="border border-gray-300 px-4 py-2 hover:bg-gray-100">{{student.name}}</td>
+            <td class="border border-gray-300 px-4 py-2 hover:bg-gray-100">{{student.email}}</td>
+            <td class="border border-gray-300 px-4 py-2 hover:bg-gray-100">{{student.mobile}}</td>
+            <td class="border border-gray-300 px-4 py-2 hover:bg-gray-100">
+              <a href="{{url_for('delete_student', student_id=student.id)}}" class="text-red-500 hover:text-red-700">Delete</a>
+            </td>
+          </tr>
+          {% endfor %}
+          
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="w-3/4 flex justify-center">
+      <a href="{{ url_for('add_Student') }}" class="mt-4 inline-block px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">Add New Student</a>
+    </div>
+      
+</body>
+</html>
